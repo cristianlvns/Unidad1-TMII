@@ -1,0 +1,37 @@
+import 'package:flutter/material.dart';
+
+class Chihuahua extends StatelessWidget {
+  const Chihuahua({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    List<String> nombresImagenes = [
+      '1.jpg',
+      '2.jpg',
+      '3.jpg',
+      '4.jpg',
+      '5.jpg',
+      '6.jpg',
+      '7.jpg',
+      '8.jpg'
+    ];
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Chihuahua'),
+      ),
+      body: GridView.builder(
+        scrollDirection: Axis.vertical,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: 8,
+          crossAxisSpacing: 8,
+        ),
+        itemCount: nombresImagenes.length,
+        itemBuilder: (context, index) {
+          return Image(
+              image: AssetImage('images/chihuahua/' + nombresImagenes[index]));
+        },
+      ),
+    );
+  }
+}
